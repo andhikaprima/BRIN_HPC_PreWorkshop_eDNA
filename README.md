@@ -227,10 +227,10 @@ Anda dapat melihat keluarannya dengan mengetik “fnFs” dan menjalankannya. Se
 fnRs
 ```
 >[1] "./bioinfomatics_course/MiSeq_SOP/F3D0_S188_L001_R2_001.fastq"
->[2]"./bioinfomatics_course/MiSeq_SOP/F3D1_S189_L001_R2_001.fastq"
->[3]"./bioinfomatics_course/MiSeq_SOP/F3D141_S207_L001_R2_001.fastq"
->[4]"./bioinfomatics_course/MiSeq_SOP/F3D142_S208_L001_R2_001.fastq"
->[5]"./bioinfomatics_course/MiSeq_SOP/F3D143_S209_L001_R2_001.fastq"
+>[2] "./bioinfomatics_course/MiSeq_SOP/F3D1_S189_L001_R2_001.fastq"
+>[3] "./bioinfomatics_course/MiSeq_SOP/F3D141_S207_L001_R2_001.fastq"
+>[4] "./bioinfomatics_course/MiSeq_SOP/F3D142_S208_L001_R2_001.fastq"
+>[5] "./bioinfomatics_course/MiSeq_SOP/F3D143_S209_L001_R2_001.fastq"
 
 Terlihat bagus, tapi apa artinya? fnFs dan fnRs menunjuk ke file fastq di komputer kita. Kita juga dapat menjalankan fungsi pada berkas-berkas tersebut dengan menggunakan fnFs untuk menunjuknya.<br />
 ![image](https://github.com/user-attachments/assets/1b3e419c-d520-474a-9ac1-f75e9293958e)
