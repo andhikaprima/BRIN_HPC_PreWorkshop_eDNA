@@ -22,12 +22,14 @@ srun --partition=interactive2 --cpus-per-task=4 --pty bash
 ```
 Jika berhasil, maka Anda akan mendapatkan compute node bermana `trembesi91` atau `trembesi92`. 
 
-![Screenshot 2024-07-11 at 09 51 58](https://github.com/siryanto/BRIN-ONT-avian-workshop/assets/30887367/d88383e2-75d8-4798-b68a-8bcb91f0ca78)
+![image](https://github.com/user-attachments/assets/5293726b-4cbb-4f81-a9b7-1c1f78b31f56)
+
+
 
 ## 3. Check versi python dan update versi python
 Untuk mengetahui versi pythin Anda, ketikan perintah `python –version` atau `python -V`
 Pastikan versi yang Anda gunakan adalah Python 3.10.14
-Jika bukan versi tersebut, lakukan langka berikut
+Jika bukan versi tersebut, lakukan langkah berikut:
 ```
 wget https://www.python.org/ftp/python/3.10.14/Python-3.10.14.tgz
 tar zxfv Python-3.10.14.tgz
@@ -41,14 +43,16 @@ export PATH=$CWD:$PATH  # adds python3.10 to PATH
 ```
 Cek kembali versin python Anda 
 
-## 3. Menyiapkan Conda Environment
+
+
+## 4. Menyiapkan Conda Environment
 PERHATIAN!
-Jika Anda sudah memiliki Conda Environment, silakan SKIP langkah ini dan lanjut ke langkah 4.
+Jika Anda sudah memiliki Conda Environment, silakan SKIP langkah ini dan lanjut ke langkah 5.
 
 Install miniconda dengan perintah berikut.
 ```
 mkdir -p ~/miniconda3
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-py39_24.5.0-0-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm -rf ~/miniconda3/miniconda.sh
 ./miniconda3/bin/conda init
@@ -59,20 +63,27 @@ Setelah proses instalasi selesai, logout terlebih dahulu dengan perintah `exit` 
 
 Login kembali ke MAHAMERU BRIN HPC dengan perintah SSH. Jika instalasi conda berhasil dan environment `base` diaktifkan otomatis, maka prompt di login node muncul `(base)` sebelum tulisan akun Anda, seperti contoh berikut.
 
-![Screenshot 2024-07-09 at 13 06 21](https://github.com/siryanto/BRIN-ONT-avian-workshop/assets/30887367/8b0f3297-6ac4-4b74-8989-e81a19cae6e9)
+![image](https://github.com/user-attachments/assets/85ce8af8-39a3-4f88-8c9b-186877a72ff5)
 
 
 Anda dapat juga mengecek apakah Conda sudah terinstall atau belum dengan mengetikkan perintah 
 ```
  conda --version
 ```
-Jika Conda telah berhasil terpasang, maka akan muncul nomor versi Conda yang terpasang, misal `conda 24.3.0`. 
-## 4. Buat dan aktifkan environment aplikasi untuk analisis
+Jika Conda telah berhasil terpasang, maka akan muncul nomor versi Conda yang terpasang, misal `conda 24.5.0`. 
+![image](https://github.com/user-attachments/assets/469ea1b9-96d4-4879-b89c-dfe78c22b6a9)
+
+
+
+## 5. Buat dan aktifkan environment aplikasi untuk analisis
 Agar proses pembuatan environment dan instalasi aplikasi berjalan lancar, lakukan proses tersebut di interactive compute node dengan cara menjalankan perintah `srun` seperti pada langkah 2.
 
 Dalam workshop ini, ada 3 aplikasi yang akan digunakan, yaitu `NanoPlot` untuk QC, `flye` untuk melakukan denovo assembly, dan `medaka` untuk polishing hasil assembly. Ketiga aplikasi ini tersedia di Conda channel yang bernama 'bioconda'. 
 
 Karena dependencies dari masing-masing aplikasi yang digunakan tidak selalu seragam, terutama versi `python`, maka menggunakan satu environment untuk ketiga aplikasi di atas tidak memungkinkan. Dalam workshop ini, setiap aplikasi akan menggunakan environment sendiri. 
+
+
+
 ### 4.1 Install NanoPlot
 ```
 conda create -n nanoplot -c bioconda NanoPlot
