@@ -1,5 +1,5 @@
 # BRIN eDNA Masterclass
-![image](https://github.com/user-attachments/assets/0dda164d-d253-4a85-9461-1e7d04096938)   ![image](https://github.com/user-attachments/assets/eb1fec9f-bf47-41e8-99e0-7e0f91c780e2)
+![image](https://github.com/user-attachments/assets/0dda164d-d253-4a85-9461-1e7d04096938) &nbsp; &nbsp; &nbsp; ![image](https://github.com/user-attachments/assets/eb1fec9f-bf47-41e8-99e0-7e0f91c780e2)
 ## Pre-Workshop: HPC Introduction and Setup Environment
 Prepared by: Andhika Prima Prasetyo, Syam Budi Iryanto & Michael Sinclair <br />
 Credit: Modified from "BRIN-ONT-avian-workshop" by Syam Budi Irianto <br />
