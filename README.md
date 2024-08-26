@@ -1,9 +1,10 @@
 # BRIN eDNA Masterclass
 ## Pre-Workshop: HPC Introduction and Setup Environment
-Prepared by: Andhika Prima Prasetyo, Syam Budi Iryanto & Michael Sinclair
-/Credit: Modified from "BRIN-ONT-avian-workshop" by Syam Budi Irianto
-/Link: https://github.com/andhikaprima/BRIN-ONT-avian-workshop
-#
+Prepared by: Andhika Prima Prasetyo, Syam Budi Iryanto & Michael Sinclair <br />
+Credit: Modified from "BRIN-ONT-avian-workshop" by Syam Budi Irianto <br />
+Link: https://github.com/andhikaprima/BRIN-ONT-avian-workshop <br />
+<br />
+<br />
 
 ## 1. Mengakses MAHAMERU BRIN HPC dengan SSH
 Gunakan Terminal, Command Prompt, atau CLI software favorit Anda untuk menjalankan perintah SSH.
