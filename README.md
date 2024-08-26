@@ -153,7 +153,7 @@ library(BiocManager)
 
 
 ## 9 Menginstall Dada2 
-Pipeline yang akan kita gunakan untuk analisis data eDNA metabarcoding adalah Dada2. Dada2 dikembangkan oleh Callahan et.al. (2016) [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4927377/]. Dada2 adalah perangkat lunak yang memodelkan dan mengoreksi kesalahan amplikon yang diurutkan oleh Illumina. Dada2 menyimpulkan urutan sampel dengan tepat, tanpa pengelompokan kasar ke dalam OTU, dan menyelesaikan perbedaan sesedikit satu nukleotida. Dalam beberapa komunitas tiruan, DADA2 mengidentifikasi lebih banyak varian nyata dan menghasilkan lebih sedikit urutan palsu dari pada metode lain. Jadi, mari kita unduh package Dada2 dari respository BiocManager. Kemudian muat paketnya dan lakukan pengecekan versi, seharusnya versi yang digunakan adalah "1.32.0".
+Pipeline yang akan kita gunakan untuk analisis data eDNA metabarcoding adalah Dada2. Dada2 dikembangkan oleh Callahan et.al. (2016) [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4927377/]. Dada2 adalah perangkat lunak yang memodelkan dan mengoreksi kesalahan amplikon yang diurutkan oleh Illumina. Dada2 menyimpulkan urutan sampel dengan tepat, tanpa pengelompokan kasar ke dalam OTU, dan menyelesaikan perbedaan sesedikit satu nukleotida. Dalam beberapa komunitas tiruan, Dada2 mengidentifikasi lebih banyak varian nyata dan menghasilkan lebih sedikit urutan palsu dari pada metode lain. Jadi, mari kita unduh package Dada2 dari respository BiocManager. Kemudian muat paketnya dan lakukan pengecekan versi, seharusnya versi yang digunakan adalah "1.32.0".
 ```
 BiocManager::install("dada2", version = "3.19")
 library(dada2); packageVersion("dada2")
