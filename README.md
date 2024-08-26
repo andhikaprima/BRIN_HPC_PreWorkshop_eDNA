@@ -140,7 +140,7 @@ library(BiocManager)
 
 
 ## 9 Menginstall Dada2 
-Pipeline yang akan kita gunakan untuk analisis data eDNA metabarcoding adalah Dada2. Dada2 dikembangkan oleh Benjamin J Callahan et.al. (2016). Dada2 adalah perangkat lunak yang memodelkan dan mengoreksi kesalahan amplikon yang diurutkan oleh Illumina. DADA2 menyimpulkan urutan sampel dengan tepat, tanpa pengelompokan kasar ke dalam OTU, dan menyelesaikan perbedaan sesedikit satu nukleotida. Dalam beberapa komunitas tiruan, DADA2 mengidentifikasi lebih banyak varian nyata dan menghasilkan lebih sedikit urutan palsu daripada metode lain. Jadi, mari kita unduh file dada2 miliknya. Kemudian muat paketnya dan lakukan pengecekan versi, seharusnya "1.32.0".
+Pipeline yang akan kita gunakan untuk analisis data eDNA metabarcoding adalah Dada2. Dada2 dikembangkan oleh Callahan et.al. (2016) [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4927377/]. Dada2 adalah perangkat lunak yang memodelkan dan mengoreksi kesalahan amplikon yang diurutkan oleh Illumina. DADA2 menyimpulkan urutan sampel dengan tepat, tanpa pengelompokan kasar ke dalam OTU, dan menyelesaikan perbedaan sesedikit satu nukleotida. Dalam beberapa komunitas tiruan, DADA2 mengidentifikasi lebih banyak varian nyata dan menghasilkan lebih sedikit urutan palsu daripada metode lain. Jadi, mari kita unduh file dada2 miliknya. Kemudian muat paketnya dan lakukan pengecekan versi, seharusnya "1.32.0".
 ```
 BiocManager::install("dada2", version = "3.19")
 library(dada2); packageVersion("dada2")
@@ -186,77 +186,78 @@ Sekarang kita telah memiliki dataset yang nantinya akan digunakan untuk pelatiha
 
 
 
-## 11 Mari mencoba Dada2 pipeline
-1. Jalankan R [Langkah 6-7]
+## 11 Mari mencoba Dada2 pipeline (Nyicipin sedikit)
+### 1. Keluar dari Terminal dan login kembali [Langkah 1, 2 dan 6]
 
-2. Load package Dada2 [Langkah 9]
+### 2. Jalankan R [Langkah 6-7]
 
-3. Setting Working Directory and File Paths
+### 3. Load package Dada2 [Langkah 9]
+
+### 4. Setting Working Directory dan File Paths
 ```
 setwd("~/workshop/eDNAmasterclass")
 ```
 
-Now, you must set the path to the files you were provided
+Sekarang, Anda perlu mengatur path dimana file fastq disimpan.
 ```
 path <- "./MiSeq_SOP" 
 ```
 
-Note that there is a “./” at the front. This means that the path starts from the present working directory.
-you could also do this
+Perhatikan bahwa ada tanda “./” di bagian depan. Ini berarti bahwa path dimulai dari direktori kerja saat ini.<br />
+Anda juga dapat melakukan hal berikut:
 ```
 path <- " /mgpfs/home/andh009/workshop/eDNAmasterclass/MiSeq_SOP"
 ```
 
-Now, let's check if you have the right path.
+Sekarang, mari kita periksa apakah Anda sudah berada di path yang sesuai.
 ```
 list.files(path)
 ```
 
-4. Collating fastq Files 
-Now, it starts to look complicated. But really, it’s doing something quite simple.
+### 5. Mengelompokkan fastq file 
+Sekarang, ini mulai terlihat rumit. Tapi sebenarnya, ini melakukan sesuatu yang cukup sederhana.
 ```
 fnFs <- sort(list.files(path, pattern="_R1_001.fastq", full.names = TRUE))
 fnRs <- sort(list.files(path, pattern="_R2_001.fastq", full.names = TRUE))
 ```
 
-Let’s translate that into English.
-Make a variable and assign this variable to sort the files listed in “path”. But only sort the files that contain “_R1_001.fastq”. And use “_R1_001.fastq” to sort them. However, in the output, include the whole name.
-You can view the output of this by typing “fnFs” and running it. It should look like this 
+Bahasa manusianya kira-kira adalah buatlah sebuah variabel dan tetapkan variabel ini untuk mengurutkan file yang terdaftar di “path”. Tetapi hanya mengumpulkan file yang berisi “_R1_001.fastq”. Gunakan “_R1_001.fastq” sebagai kata kunci pengelompokannya. Namun, untuk keluarannya, sertakan seluruh file.
+Anda dapat melihat keluarannya dengan mengetik “fnFs” dan menjalankannya. Seharusnya akan terlihat seperti ini:
 ```
 fnRs
 ```
->[1]“./bioinfomatics_course/MiSeq_SOP/F3D0_S188_L001_R2_001.fastq”
->[2]“./bioinfomatics_course/MiSeq_SOP/F3D1_S189_L001_R2_001.fastq”
->[3]“./bioinfomatics_course/MiSeq_SOP/F3D141_S207_L001_R2_001.fastq”
->[4]“./bioinfomatics_course/MiSeq_SOP/F3D142_S208_L001_R2_001.fastq”
->[5]“./bioinfomatics_course/MiSeq_SOP/F3D143_S209_L001_R2_001.fastq”
+>[1] "./bioinfomatics_course/MiSeq_SOP/F3D0_S188_L001_R2_001.fastq"
+>[2]"./bioinfomatics_course/MiSeq_SOP/F3D1_S189_L001_R2_001.fastq"
+>[3]"./bioinfomatics_course/MiSeq_SOP/F3D141_S207_L001_R2_001.fastq"
+>[4]"./bioinfomatics_course/MiSeq_SOP/F3D142_S208_L001_R2_001.fastq"
+>[5]"./bioinfomatics_course/MiSeq_SOP/F3D143_S209_L001_R2_001.fastq"
 
-So that's great, but what does that mean? fnFs and fnRs point to our fastq files on our computer. We can also perform functions on those files by using fnFs to point at them.
+Terlihat bagus, tapi apa artinya? fnFs dan fnRs menunjuk ke file fastq di komputer kita. Kita juga dapat menjalankan fungsi pada berkas-berkas tersebut dengan menggunakan fnFs untuk menunjuknya.<br />
 ![image](https://github.com/user-attachments/assets/1b3e419c-d520-474a-9ac1-f75e9293958e)
 
 
 
 # BONUS: File transfer with FTP solution 
-Setup filezilla
-In this training we will use FileZilla for FTP manager. So, please download the application in this link https://filezilla-project.org/download.php. Go to File > Site Manager and click New Site. Give the name "BRIN HPC".
+## Setup filezilla
+Pada pelatihan ini kita akan menggunakan FileZilla untuk pengelola FTP, serupa dengan Window Explore. Jadi, silakan unduh aplikasinya di tautan ini https://filezilla-project.org/download.php. Pergi ke File > Site Manager dan klik New Site. Beri nama "BRIN HPC".
  ![image](https://github.com/user-attachments/assets/1fc80f14-6cae-4b98-b569-277bf404481a)
 ![image](https://github.com/user-attachments/assets/bebf794a-dbd0-41aa-8526-8309d2f634b3)
 
  
-Fill the information as showed:
+Isi informasi sebagai berikut:
 Protocol: SFTP – SSH File Transfer Protocol
 Host: login2.hpc.brin.go.id
 Logon Type: Key file
 User: [YOUR ACCOUNT]
 Key file: [CREATE YOUR KEY FILE FIRST, BY FOLLOW STEP BELOW] 
  
-Before entry the information you, should create key file by browse your id_rsa key. It should be in “C:\Users\BRIN\.ssh” for windows user (depend on you laptop).  After that, select “All files (*.*)” on the file type. Then, select id_rsa (NOT id_rsa.pub). It will ask you to convert key file, select YES. It will ask to create password for safety. Then, it will ask to save your key file
+Sebelum memasukkan informasi, Anda harus membuat file kunci dengan mencari kunci id_rsa Anda. Kunci tersebut harus berada di "C:\Users\BRIN\.ssh" untuk pengguna windows (tergantung pada laptop Anda).  Setelah itu, pilih "Semua file (*.*)" pada jenis file. Kemudian, pilih id_rsa (BUKAN id_rsa.pub). Ini akan meminta Anda untuk mengonversi file kunci, pilih YES. Ia akan meminta Anda untuk membuat kata sandi untuk keamanan. Kemudian, ia akan meminta untuk menyimpan file kunci Anda.
 ![image](https://github.com/user-attachments/assets/d24603c3-24e9-476b-a3c5-77cbf7714984)
  ![image](https://github.com/user-attachments/assets/a487046e-02db-4bea-8eea-05c360d15afd)
 ![image](https://github.com/user-attachments/assets/67ae4200-514e-486e-8465-373f85b9b9c4)
 ![image](https://github.com/user-attachments/assets/76bcbc00-d56a-4d7b-a15b-cb5728100106)
 
-Now you can connect to server by clicking drop-down menu on server icon, then select “BRIN HPC”. Entry the password you added previously. So, the transfer files (copy and paste) simply like you do in windows explorer.
+Sekarang Anda dapat terhubung ke server dengan mengklik menu drop-down pada ikon server, lalu pilih "BRIN HPC". Masukkan kata sandi yang Anda tambahkan sebelumnya. Selanjutnya, transfer file (copy dan paste) seperti yang Anda lakukan di windows explorer.
 ![image](https://github.com/user-attachments/assets/cf945985-4180-428f-ad76-236312ce03fe)
  ![image](https://github.com/user-attachments/assets/ae39bc8a-73ac-42f9-a116-bc7054184008)
 
