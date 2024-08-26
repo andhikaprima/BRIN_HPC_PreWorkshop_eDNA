@@ -11,7 +11,8 @@ ssh [akun SSO BRIN]@login2.hpc.brin.go.id
 ```
 Jika berhasil, Anda masuk di login node bernama `trembesi02` seperti tampilan di bawah ini
 
-![Screenshot 2024-07-09 at 11 52 51](https://github.com/siryanto/BRIN-ONT-avian-workshop/assets/30887367/649bc235-0039-4e7a-a2de-23776572c2b9)
+![image](https://github.com/user-attachments/assets/bf171033-ce89-4cf7-91f7-2d5f67693965)
+
 
 
 ## 2. Bekerja dengan mode interaktif di MAHAMERU BRIN HPC
