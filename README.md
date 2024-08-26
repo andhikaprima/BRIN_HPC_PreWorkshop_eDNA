@@ -78,7 +78,7 @@ Jika Conda telah berhasil terpasang, maka akan muncul nomor versi Conda yang ter
 ## 5. Buat dan aktifkan environment aplikasi untuk analisis
 Agar proses pembuatan environment dan instalasi aplikasi berjalan lancar, lakukan proses tersebut di interactive compute node dengan cara menjalankan perintah `srun` seperti pada langkah 2.
 
-Dalam workshop ini, aplikasi yang akan digunakan adalah `R` untuk melakukan QC, filtering, clustering dan taxonomy assigment. Aplikasi `R base` di Conda channel yang bernama 'bioconda'. 
+Dalam workshop ini, aplikasi yang akan digunakan adalah 'R' untuk melakukan QC, filtering, clustering dan taxonomy assigment. Aplikasi `R base` di Conda channel yang bernama 'bioconda'. 
 
 Karena dependencies dari masing-masing aplikasi yang digunakan tidak selalu seragam, terutama versi `python`, maka menggunakan satu environment untuk ketiga aplikasi di atas tidak memungkinkan. Dalam workshop ini, setiap aplikasi akan menggunakan environment sendiri. 
 
@@ -98,6 +98,7 @@ R --version
 Jika berhasil, maka layar akan menampilkan kode versi NanoPlot. 
 ![image](https://github.com/user-attachments/assets/64af83ce-c456-46fd-ae26-39f37af6c289)
 
+Pastikan bahwa 'R base' yang terinstall adalah version 4.4.1
 
 
 
