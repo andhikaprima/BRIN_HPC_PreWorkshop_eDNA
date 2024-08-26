@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/33026fb3-a0ba-426b-afd0-7b59cffb12ee)
 # BRIN eDNA Masterclass
 ## Pre-Workshop: HPC Introduction and Setup Environment
 Modified from "BRIN-ONT-avian-workshop" by Syam Budi Irianto
