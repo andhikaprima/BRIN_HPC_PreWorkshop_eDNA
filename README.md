@@ -30,7 +30,7 @@ Jika berhasil, maka Anda akan mendapatkan compute node bermana `trembesi91` atau
 
 
 ## 3. Check versi python dan update versi python
-Untuk mengetahui versi pythin Anda, ketikan perintah `python –version` atau `python -V`
+Untuk mengetahui versi 'Python' Anda, ketikan perintah `python –version` atau `python -V`
 Pastikan versi yang Anda gunakan adalah Python 3.10.14
 Jika bukan versi tersebut, lakukan langkah berikut:
 ```
@@ -44,7 +44,11 @@ make
 make install
 export PATH=$CWD:$PATH  # adds python3.10 to PATH
 ```
-Cek kembali versin python Anda 
+
+Cek kembali versi python Anda 
+```
+python –version
+```
 
 
 
@@ -73,7 +77,7 @@ Anda dapat juga mengecek apakah Conda sudah terinstall atau belum dengan mengeti
 ```
  conda --version
 ```
-Jika Conda telah berhasil terpasang, maka akan muncul nomor versi Conda yang terpasang, misal `conda 24.5.0`. 
+Jika Conda telah berhasil terpasang, maka akan muncul nomor versi Conda yang terpasang, seharunya adalah `conda 24.5.0`. 
 ![image](https://github.com/user-attachments/assets/469ea1b9-96d4-4879-b89c-dfe78c22b6a9)
 
 
@@ -83,7 +87,7 @@ Agar proses pembuatan environment dan instalasi aplikasi berjalan lancar, lakuka
 
 Dalam workshop ini, aplikasi yang akan digunakan adalah `R` untuk melakukan QC, filtering, clustering dan taxonomy assigment. Aplikasi `R base` di Conda channel yang bernama 'bioconda'. `R` adalah lingkungan perangkat lunak gratis untuk komputasi statistik dan grafik. R dikompilasi dan berjalan pada berbagai macam platform UNIX, Windows dan MacOS.
 
-Karena dependencies dari masing-masing aplikasi yang digunakan tidak selalu seragam, terutama versi `python`, maka menggunakan satu environment untuk ketiga aplikasi di atas tidak memungkinkan. Dalam workshop ini, setiap aplikasi akan menggunakan environment sendiri. 
+Karena dependencies dari masing-masing aplikasi yang digunakan tidak selalu seragam, terutama versi `python`, maka menggunakan satu environment untuk beberapa aplikasi menajadi menyulitkan. Dalam workshop ini, setiap aplikasi akan menggunakan environment sendiri, untuk kasus ini kita akan menginstall R base di Conda environment. 
 
 
 
@@ -103,10 +107,17 @@ Jika proses selesai dan berhasil, periksa versi R yang terinstall dengan menjala
 conda activate Rbase
 R --version
 ```
-Jika berhasil, maka layar akan menampilkan kode versi NanoPlot. 
+Jika berhasil, maka layar akan menampilkan kode versi R. 
 ![image](https://github.com/user-attachments/assets/64af83ce-c456-46fd-ae26-39f37af6c289)
 
-Pastikan bahwa `R base` yang terinstall adalah version 4.4.1
+Pastikan bahwa `R base` yang terinstall adalah version 4.4.1.<br /> <br />
+
+### Info tambahan: Perintah umum di Conda
+![image](https://github.com/user-attachments/assets/2f485796-3770-4089-953a-f3abf35842c1)
+Contoh
+1. Mengaktifkan environment tertentu di Conda `conda activate [NAMA ENVIRONMENT]`
+2. Menonaktifkan environment tertentu di Conda `conda deactivate`
+3. Melihat enviroment apa yang yang sudah dibuat atau tersedia `conda env list`
 
 
 
@@ -121,18 +132,20 @@ Untuk keluar dari aplikasi R ketikan perintah:
 ```
 q()
 ```
+Secara otomatis, R akan menanyakan apakah Anda ingin menyimpan lingkungan kerja? Ketik Y jika Anda ingin menyimpannya dan memuatnya di kemudian hari. <br />
+![image](https://github.com/user-attachments/assets/c177255e-4003-4aaf-bfa7-a5876eb19c2f)
 
 
 
 ## 8 Menginstal R packages dependencies (Diperlukan 1-2 jam, terutama permintaan unduhan yang tinggi pada waktu yang sama)
-Karena pekerjaan kita berkaitan dengan bidang biologi, makan kita akan menggunakan repositori untuk bidang biologi, yakni `BiocManager`.
+Karena pekerjaan kita berkaitan dengan bidang biologi, maka kita akan menggunakan repositori untuk bidang biologi, yakni `BiocManager`.
 ```
 install.packages("BiocManager")
 ```
 Ketika Anda pertama kali menginstal R, ia akan meminta mirror CRAN Anda (semacam basis data global dari R packages). Untuk kali ini, Anda dapat mengetikkan 44 untuk "44: Indonesia (Banda Aceh) [https]". 
 ![image](https://github.com/user-attachments/assets/158e7bf9-fd94-4963-b7f3-5f685b732c85)
 
-Install.Packages hanya utnuk mengunduh dan menginstal package. Untuk menggunakan package tersebut, kita perlu menjalankan perintah berikut ini:
+Install.Packages hanya untuk mengunduh dan menginstal package. Untuk menggunakan package tersebut (load), kita perlu menjalankan perintah berikut ini:
 ```
 library(BiocManager)
 ```
@@ -140,7 +153,7 @@ library(BiocManager)
 
 
 ## 9 Menginstall Dada2 
-Pipeline yang akan kita gunakan untuk analisis data eDNA metabarcoding adalah Dada2. Dada2 dikembangkan oleh Callahan et.al. (2016) [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4927377/]. Dada2 adalah perangkat lunak yang memodelkan dan mengoreksi kesalahan amplikon yang diurutkan oleh Illumina. DADA2 menyimpulkan urutan sampel dengan tepat, tanpa pengelompokan kasar ke dalam OTU, dan menyelesaikan perbedaan sesedikit satu nukleotida. Dalam beberapa komunitas tiruan, DADA2 mengidentifikasi lebih banyak varian nyata dan menghasilkan lebih sedikit urutan palsu daripada metode lain. Jadi, mari kita unduh file dada2 miliknya. Kemudian muat paketnya dan lakukan pengecekan versi, seharusnya "1.32.0".
+Pipeline yang akan kita gunakan untuk analisis data eDNA metabarcoding adalah Dada2. Dada2 dikembangkan oleh Callahan et.al. (2016) [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4927377/]. Dada2 adalah perangkat lunak yang memodelkan dan mengoreksi kesalahan amplikon yang diurutkan oleh Illumina. Dada2 menyimpulkan urutan sampel dengan tepat, tanpa pengelompokan kasar ke dalam OTU, dan menyelesaikan perbedaan sesedikit satu nukleotida. Dalam beberapa komunitas tiruan, DADA2 mengidentifikasi lebih banyak varian nyata dan menghasilkan lebih sedikit urutan palsu dari pada metode lain. Jadi, mari kita unduh package Dada2 dari respository BiocManager. Kemudian muat paketnya dan lakukan pengecekan versi, seharusnya versi yang digunakan adalah "1.32.0".
 ```
 BiocManager::install("dada2", version = "3.19")
 library(dada2); packageVersion("dada2")
@@ -151,14 +164,12 @@ Selamat pipeline Dada2 siap untuk digunakan lebih lanjut saat eDNA Masterclass. 
 ```
 q()
 ```
-Secara otomatis, R akan menanyakan apakah Anda ingin menyimpan lingkungan kerja? Ketik Y jika Anda ingin menyimpannya dan memuatnya di kemudian hari. <br />
-![image](https://github.com/user-attachments/assets/c177255e-4003-4aaf-bfa7-a5876eb19c2f)
 
 
 
 ## 10 Setup directory and download dataset
-Sekarang kita ingin menyiapkan dataset untuk pelatihan. Data yang akan kita gunakan sama dengan data yang digunakan dalam SOP mothur MiSeq (https://mothur.org/wiki/miseq_sop/). Untuk mengikuti langkah selanjutnya, unduh data contoh dan unzip. File fastq ini dihasilkan oleh pengurutan amplikon Illumina Miseq 2x250 dari wilayah V4 gen 16S rRNA dari sampel usus yang dikumpulkan secara longitudinal dari tikus pascasapih. Untuk saat ini, anggap saja file fastq berpasangan yang akan diproses. 
-Tautan: https://mothur.s3.us-east-2.amazonaws.com/wiki/miseqsopdata.zip
+Sekarang kita ingin menyiapkan dataset untuk pelatihan. Data yang akan kita gunakan sama dengan data yang digunakan dalam SOP mothur MiSeq (https://mothur.org/wiki/miseq_sop/). Untuk mengikuti langkah selanjutnya, unduh data contoh dan unzip. File fastq ini dihasilkan oleh pengurutan amplikon Illumina Miseq 2x250 dari wilayah V4 gen 16S rRNA dari sampel usus yang dikumpulkan secara longitudinal dari tikus pascasapih. Untuk saat ini, anggap saja file fastq berpasangan yang akan diproses. <br />
+Tautan: https://mothur.s3.us-east-2.amazonaws.com/wiki/miseqsopdata.zip <br />
 Pertama, kita perlu membuat direktori dengan mengetik:
 ```
 mkdir workshop
@@ -174,7 +185,7 @@ wget https://mothur.s3.us-east-2.amazonaws.com/wiki/miseqsopdata.zip
 ```
 ![image](https://github.com/user-attachments/assets/c9ae9f02-1c8a-4c5c-a0c1-4195343236b7)
 
-Kemudian, buka zip dataset dengan mengetik:
+Kemudian, ektrak zip dataset dengan mengetik:
 ```
 unzip miseqsopdata.zip
 ls
@@ -182,7 +193,7 @@ ls
 ![image](https://github.com/user-attachments/assets/cd931726-0f06-42de-9120-5f80c3735016)
 ![image](https://github.com/user-attachments/assets/3a6a2317-6d55-41b2-b6f1-d2f92a653d5d)
 
-Sekarang kita telah memiliki dataset yang nantinya akan digunakan untuk pelatihan di dalam folder “MiSeq_SOP”.
+Sekarang kita telah memiliki dataset yang nantinya akan digunakan untuk pelatihan di dalam folder "MiSeq_SOP".
 
 
 
