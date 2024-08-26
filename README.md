@@ -1,9 +1,8 @@
 # BRIN eDNA Masterclass
-# Pre-Workshop: HPC Introduction and Setup Environment
+## Pre-Workshop: HPC Introduction and Setup Environment
 Modified from "BRIN-ONT-avian-workshop" by Syam Budi Irianto
 Link: https://github.com/andhikaprima/BRIN-ONT-avian-workshop
-
-
+#
 
 ## 1. Mengakses MAHAMERU BRIN HPC dengan SSH
 Gunakan Terminal, Command Prompt, atau CLI software favorit Anda untuk menjalankan perintah SSH.
@@ -14,6 +13,7 @@ Jika berhasil, Anda masuk di login node bernama `trembesi02` seperti tampilan di
 
 ![Screenshot 2024-07-09 at 11 52 51](https://github.com/siryanto/BRIN-ONT-avian-workshop/assets/30887367/649bc235-0039-4e7a-a2de-23776572c2b9)
 
+
 ## 2. Bekerja dengan mode interaktif di MAHAMERU BRIN HPC
 Gunakan perintah `srun` untuk bekerja dengan cara interaktif di MAHAMERU BRIN HPC seperti berikut ini
 ```
@@ -23,6 +23,22 @@ Jika berhasil, maka Anda akan mendapatkan compute node bermana `trembesi91` atau
 
 ![Screenshot 2024-07-11 at 09 51 58](https://github.com/siryanto/BRIN-ONT-avian-workshop/assets/30887367/d88383e2-75d8-4798-b68a-8bcb91f0ca78)
 
+## 3. Check versi python dan update versi python
+Untuk mengetahui versi pythin Anda, ketikan perintah `python –version` atau `python -V`
+Pastikan versi yang Anda gunakan adalah Python 3.10.14
+Jika bukan versi tersebut, lakukan langka berikut
+```
+wget https://www.python.org/ftp/python/3.10.14/Python-3.10.14.tgz
+tar zxfv Python-3.10.14.tgz
+rm Python-3.10.14.tgz
+find ./Python-3.10.14/Python -type d | xargs chmod 0755
+cd Python-3.10.14
+./configure --prefix=$PWD/Python-3.10.14/Python
+make
+make install
+export PATH=$CWD:$PATH  # adds python3.10 to PATH
+```
+Cek kembali versin python Anda 
 
 ## 3. Menyiapkan Conda Environment
 PERHATIAN!
