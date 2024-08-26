@@ -232,7 +232,7 @@ So that's great, but what does that mean? fnFs and fnRs point to our fastq files
 ![image](https://github.com/user-attachments/assets/1b3e419c-d520-474a-9ac1-f75e9293958e)
 
 
-# Selamat Anda telah menyelesaikan tahapan persiapan awal untuk workshop eDNA Masterclass nanti
+# Selamat Anda telah menyelesaikan tahapan persiapan awal untuk workshop eDNA Masterclass
 Selamat mengeksplor dan mencoba
 ## #BingungDahuluPahamKemudian
 
