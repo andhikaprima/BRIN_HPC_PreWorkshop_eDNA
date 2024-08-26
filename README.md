@@ -5,6 +5,12 @@ Prepared by: Andhika Prima Prasetyo, Syam Budi Iryanto & Michael Sinclair <br />
 Credit: Modified from "BRIN-ONT-avian-workshop" by Syam Budi Irianto <br />
 Link: https://github.com/andhikaprima/BRIN-ONT-avian-workshop <br />
 ## #BingungDahuluPahamKemudian
+Workshop ini merupakan bagian tidak terpisahkan dari kegiatan eDNA Masterclass. Pre-worskhop ini ditujukan untuk menyiapkan peserta pelatihan untuk sesi bioinformatika. Pre-workshop ini mencoba untuk fokus pada beberapa hal, yakni:
+1. Mengajak peserta untuk mengenal fasilitas HPC yang ada di BRIN
+2. Menyiapkan Conda Environment
+3. Menginstall R
+4. Menginstall Dada2, dan
+5. Menyiapkan file training untuk eDNA Masterclass
 <br />
 <br />
 
