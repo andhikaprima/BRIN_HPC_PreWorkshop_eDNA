@@ -151,7 +151,7 @@ Selamat pipeline Dada2 siap untuk digunakan lebih lanjut saat eDNA Masterclass. 
 ```
 q()
 ```
-Secara otomatis, R akan menanyakan apakah Anda ingin menyimpan lingkungan kerja? Ketik Y jika Anda ingin menyimpannya dan memuatnya di kemudian hari.
+Secara otomatis, R akan menanyakan apakah Anda ingin menyimpan lingkungan kerja? Ketik Y jika Anda ingin menyimpannya dan memuatnya di kemudian hari. <br />
 ![image](https://github.com/user-attachments/assets/c177255e-4003-4aaf-bfa7-a5876eb19c2f)
 
 
