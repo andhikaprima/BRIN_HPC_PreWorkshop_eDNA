@@ -144,7 +144,12 @@ library(dada2); packageVersion("dada2")
 ```
 ![image](https://github.com/user-attachments/assets/4deda9f2-bbe9-43f1-a8fc-6b555e1f666c)
 
-Selamat pipeline Dada2 siap untuk digunakan lebih lanjut saat eDNA Masterclass
+Selamat pipeline Dada2 siap untuk digunakan lebih lanjut saat eDNA Masterclass. Selanjutnya kita akan menyiapkan data untuk training, kita keluar dahulu dari 'R' dengan mengetikkan perintah:
+```
+q()
+```
+Secara otomatis, R akan menanyakan apakah Anda ingin menyimpan lingkungan kerja? Ketik Y jika Anda ingin menyimpannya dan memuatnya di kemudian hari.
+![image](https://github.com/user-attachments/assets/c177255e-4003-4aaf-bfa7-a5876eb19c2f)
 
 
 
@@ -179,16 +184,16 @@ Sekarang kita telah memiliki dataset yang nantinya akan digunakan untuk pelatiha
 
 
 ## 11 Mari mencoba Dada2 pipeline
-1. Jalankan R
+1. Jalankan R [Langkah 6-7]
 
-2. Load package Dada2
+2. Load package Dada2 [Langkah 9]
 
 3. Setting Working Directory and File Paths
 ```
 setwd("~/workshop/eDNAmasterclass")
 ```
 
-Now, you must set the path to the files you were provided with. For me this is
+Now, you must set the path to the files you were provided
 ```
 path <- "./MiSeq_SOP" 
 ```
@@ -217,206 +222,17 @@ You can view the output of this by typing “fnFs” and running it. It should l
 ```
 > fnRs
 ```
-`[1] “./bioinfomatics_course/MiSeq_SOP/F3D0_S188_L001_R2_001.fastq”
-[2] “./bioinfomatics_course/MiSeq_SOP/F3D1_S189_L001_R2_001.fastq”
-[3] “./bioinfomatics_course/MiSeq_SOP/F3D141_S207_L001_R2_001.fastq”
-[4] “./bioinfomatics_course/MiSeq_SOP/F3D142_S208_L001_R2_001.fastq”
-[5] “./bioinfomatics_course/MiSeq_SOP/F3D143_S209_L001_R2_001.fastq”`
+`[1] “./bioinfomatics_course/MiSeq_SOP/F3D0_S188_L001_R2_001.fastq”`
+`[2] “./bioinfomatics_course/MiSeq_SOP/F3D1_S189_L001_R2_001.fastq”`
+`[3] “./bioinfomatics_course/MiSeq_SOP/F3D141_S207_L001_R2_001.fastq”`
+`[4] “./bioinfomatics_course/MiSeq_SOP/F3D142_S208_L001_R2_001.fastq”`
+`[5] “./bioinfomatics_course/MiSeq_SOP/F3D143_S209_L001_R2_001.fastq”`
 
 So that's great, but what does that mean? fnFs and fnRs point to our fastq files on our computer. We can also perform functions on those files by using fnFs to point at them.
 > ![image](https://github.com/user-attachments/assets/1b3e419c-d520-474a-9ac1-f75e9293958e)
 
 
+# Selamat Anda telah menyelesaikan tahapan persiapan awal untuk workshop eDNA Masterclass nanti
+Selamat mengeksplor dan mencoba
+## #BingungDahuluPahamKemudian
 
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 5. Menyiapkan data sampel
-Sampel berupa berkas dengan format FASTQ telah tersedia di server. Untuk memudahkan, buat symbolic link (symlink) ke direktori kerja Anda. Sebelum melanjutkan, agar memudahkan Anda, aktifkan dahulu environment base dengan perintah berikut.
-```
-conda activate base
-```
-### 5.1 Buat direktori kerja
-Buatlah sebuah direktori untuk proyek ini, contoh: avian_worskhop.
-```
-mkdir avian_workshop
-```
-Masuk ke direktori kerja Anda
-```
-cd avian_workshop
-```
-### 5.2 Buat symlink untuk sampel
-Buat symlink untuk sampel dengan perintah berikut
-```
-ln -s /mgpfs/data/workshop/SRR15421342.sampled10K.fastq
-```
-Lihat hasilnya dengan perintah `ls` seperti berikut
-```
-ls
-```
-Jika berhasil, akan ada sebuah berkas bernama `SRR15421342.sampled10K.fastq`.
-Berkas FASTQ tersebut merupakan berkas SRR15421342 yang diunduh dari DDBJ dan telah dilakukan resampling sebanyak 10K reads. Berkas asli berukuran 24GB, adapun berkas resampling hanya berukuran 0.5GB.
-## 6. Periksa sampel dengan NanoPlot
-Aktifkan NanoPlot env
-```
-conda activate nanoplot
-```
-Jalankan NanoPlot
-```
-NanoPlot --fastq SRR15421342.sampled10K.fastq -t 4 -o nanoplot_result
-```
-Jika berhasil, output NanoPlot ada di direktori 'nanoplot_result'.
-```
-ls nanoplot_result
-```
-Tampilan hasilnya seperti gambar berikut.
-![Screenshot 2024-07-11 at 06 54 00](https://github.com/siryanto/BRIN-ONT-avian-workshop/assets/30887367/31c225ad-1d9b-4c8f-b768-07806a0f58f2)
-Lihat summary statistik dengan perintah `less` seperti berikut
-```
-less nanoplot_result/NanoStats.txt
-```
-Hasilnya seperti di bawah ini
-```
-General summary:
-Mean read length:               26,687.2
-Mean read quality:                  11.5
-Median read length:             19,427.0
-Median read quality:                13.0
-Number of reads:                10,000.0
-Read length N50:                45,270.0
-STDEV read length:              26,049.6
-Total bases:               266,871,520.0
-Number, percentage and megabases of reads above quality cutoffs
->Q10:   8400 (84.0%) 228.8Mb
->Q15:   1588 (15.9%) 44.3Mb
->Q20:   0 (0.0%) 0.0Mb
->Q25:   0 (0.0%) 0.0Mb
->Q30:   0 (0.0%) 0.0Mb
-Top 5 highest mean basecall quality scores and their read lengths
-1:      19.3 (262)
-2:      19.0 (1)
-3:      18.5 (349)
-4:      18.5 (1076)
-5:      18.2 (274)
-Top 5 longest reads and their mean basecall quality score
-1:      347973 (15.0)
-2:      238044 (14.0)
-3:      225172 (13.6)
-4:      202808 (16.2)
-5:      199725 (14.9)
-```
-Untuk keluar dari perintah `less`, tekan tombol 'q' di keyboard Anda.
-
-Hasil plot berupa citra PNG dan report HTML dapat diunduh dengan SFTP manager seperti: FileZilla, CyberDuck, dll. (Akan dijelaskan di akhir sesi jika masih ada waktu)
-## 7. Assembly menggunakan Flye
-Aktifkan Flye env
-```
-conda activate flye
-```
-Jalankan flye
-```
-flye --nano-raw SRR15421342.sampled10K.fastq --threads 4 --out-dir flye_result --scaffold
-```
-Jika berhasil, akan muncul tampilan summary statistic seperti gambar di bawah ini
-![Screenshot 2024-07-11 at 10 24 50](https://github.com/siryanto/BRIN-ONT-avian-workshop/assets/30887367/6711f8ba-061d-419c-a3e3-9b00e4480ee5)
-
-Selain itu, terdapat direktori baru bernama `flye_result`. Hasil flye tersimpan di direktori tersebut, lihat dengan perintah `ls`.
-```
-ls flye_result
-```
-Berikut contoh hasil luaran Flye.
-![Screenshot 2024-07-11 at 10 01 42](https://github.com/siryanto/BRIN-ONT-avian-workshop/assets/30887367/a071a757-5c78-4d5e-9bc9-7401f0bfc344)
-Melihat overview hasil assembly Flye dari file `assembly_info.txt`.
-```
-less flye_result/assembly_info.txt
-```
-Contoh hasilya seperti berikut ini
-```
-#seq_name       length  cov.    circ.   repeat  mult.   alt_group       graph_path
-contig_3        116765  13      N       Y       3       *       *,3,*
-contig_4        102545  5       N       Y       1       *       *,4,*
-contig_25       79521   11      N       Y       1       *       *,25,*
-contig_5        78712   5       N       Y       1       *       *,5,*
-contig_7        68998   3       N       Y       1       *       *,7,*
-contig_6        58546   20      N       Y       3       *       *,6,*
-contig_19       58348   13      N       Y       2       *       *,19
-contig_15       51147   17      N       Y       4       *       *,15,*
-contig_16       49743   3       N       Y       1       *       *,16,*
-contig_14       46502   3       N       Y       1       *       *,14,*
-contig_12       45424   3       N       Y       1       *       *,12,*
-contig_18       37337   3       N       Y       1       *       *,18,*
-contig_11       31646   7       N       Y       1       *       *,11,*
-contig_21       23842   12      N       Y       2       *       21,*
-contig_24       20178   11      N       Y       1       *       *,24,*
-contig_13       19472   21      N       Y       4       *       *,13,*
-contig_17       17260   5       N       Y       1       *       *,17,*
-contig_1        14846   20      Y       Y       3       *       1
-contig_9        13003   16      N       Y       2       4       *,9,*
-contig_2        12104   7       N       Y       2       2       *,2,*
-contig_8        7907    3       Y       Y       1       *       8
-contig_10       1426    37      Y       Y       6       *       10
-```
-Ps. Untuk keluar dari `less`, tekan tombol 'q' di keyboard
-
-## 8. Polishing menggunakan Medaka
-Aktifkan Medaka env
-```
-conda activate medaka
-```
-Jalankan `medaka_consensus` sebagai berikut
-```
-medaka_consensus -i SRR15421342.sampled10K.fastq -d flye_result/assembly.fasta -o medaka_consensus_result -t 4 -f -m  r1041_e82_400bps_hac_g632
-```
-Catatan: opsi `-m  r1041_e82_400bps_hac_g632` merupakan model yang digunakan, disesuaikan dengan platform yang digunakan. Untuk kasus ini, karena sampel dilakukan seqeuncing dengan PromethION dan kita asumsikan menggunakan basecalling mode HAC, maka model tersebut yang digunakan. Selain itu, jika model tersebut belum diunduh, maka saat menjalankan `medaka_consensus` komputer/server/node harus dapat mengakses internet untuk mengunduh model yang digunakan.
-
-Berkas yang dihasilkan bisa dilihat dengan perintah `ls`
-```
-ls medaka_consensus_result
-```
-Hasilnya sebagai berikut
-```
-calls_to_draft.bam
-calls_to_draft.bam.bai
-consensus.fasta
-consensus.fasta.gaps_in_draft_coords.bed
-consensus_probs.hdf
-```
-
-Keterangan
-
-`consensus.fasta` Hasil konsensus setelah polishing
-
-`calls_to_draft.bam` Alignment dari reads yang sudah dikoreksi
-
-`calls_to_draft.bam.bai` Alignment index
-
-`consensus.fasta.gaps_in_draft_coords.bed` Information about gaps in the draft assembly where the consensus sequence could not be aligned or corrected
-
-`consensus_probs.hdf` Provides probabilistic information about the consensus sequence, offering insights into the confidence of each base call
