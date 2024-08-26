@@ -1,9 +1,10 @@
 # BRIN eDNA Masterclass
 ![image](https://github.com/user-attachments/assets/0dda164d-d253-4a85-9461-1e7d04096938) &nbsp; &nbsp; &nbsp; ![image](https://github.com/user-attachments/assets/eb1fec9f-bf47-41e8-99e0-7e0f91c780e2)
-## Pre-Workshop: Pengenalan HPC, Membuat Environment, Install R, Install Dada2, Unduh dataset 
+## Pre-Workshop: Pengenalan HPC, Membuat Environment, Install R, Install Dada2 dan Unduh dataset 
 Prepared by: Andhika Prima Prasetyo, Syam Budi Iryanto & Michael Sinclair <br />
 Credit: Modified from "BRIN-ONT-avian-workshop" by Syam Budi Irianto <br />
 Link: https://github.com/andhikaprima/BRIN-ONT-avian-workshop <br />
+## #BingungDahuluPahamKemudian
 <br />
 <br />
 
@@ -185,7 +186,7 @@ wget https://mothur.s3.us-east-2.amazonaws.com/wiki/miseqsopdata.zip
 ```
 ![image](https://github.com/user-attachments/assets/c9ae9f02-1c8a-4c5c-a0c1-4195343236b7)
 
-Kemudian, ektrak zip dataset dengan mengetik:
+Kemudian, ekstrak file zip tersebut dengan mengetik perintah:
 ```
 unzip miseqsopdata.zip
 ls
@@ -193,7 +194,7 @@ ls
 ![image](https://github.com/user-attachments/assets/cd931726-0f06-42de-9120-5f80c3735016)
 ![image](https://github.com/user-attachments/assets/3a6a2317-6d55-41b2-b6f1-d2f92a653d5d)
 
-Sekarang kita telah memiliki dataset yang nantinya akan digunakan untuk pelatihan di dalam folder "MiSeq_SOP".
+Selamat Anda telah memiliki dataset yang nantinya akan digunakan untuk pelatihan di dalam folder "MiSeq_SOP".
 
 
 
@@ -232,8 +233,8 @@ fnFs <- sort(list.files(path, pattern="_R1_001.fastq", full.names = TRUE))
 fnRs <- sort(list.files(path, pattern="_R2_001.fastq", full.names = TRUE))
 ```
 
-Bahasa manusianya kira-kira adalah buatlah sebuah variabel dan tetapkan variabel ini untuk mengurutkan file yang terdaftar di “path”. Tetapi hanya mengumpulkan file yang berisi “_R1_001.fastq”. Gunakan “_R1_001.fastq” sebagai kata kunci pengelompokannya. Namun, untuk keluarannya, sertakan seluruh file.
-Anda dapat melihat keluarannya dengan mengetik “fnFs” dan menjalankannya. Seharusnya akan terlihat seperti ini:
+Bahasa manusianya kira-kira adalah buatlah sebuah variabel dan tetapkan variabel ini untuk mengurutkan file yang terdaftar di "path". Tetapi hanya mengumpulkan file yang berisi "_R1_001.fastq". Gunakan "_R1_001.fastq" sebagai kata kunci pengelompokannya. Namun, untuk keluarannya, sertakan seluruh file.
+Anda dapat melihat keluarannya dengan mengetik "fnFs" dan menjalankannya. Seharusnya akan terlihat seperti ini:
 ```
 fnRs
 ```
