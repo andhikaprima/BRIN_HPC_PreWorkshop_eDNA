@@ -137,7 +137,7 @@ Secara otomatis, R akan menanyakan apakah Anda ingin menyimpan lingkungan kerja?
 
 
 
-## 8 Menginstal R packages dependencies (Diperlukan 1-2 jam, terutama permintaan unduhan yang tinggi pada waktu yang sama)
+## 8 Menginstal R packages dependencies (Diperlukan 1-2 jam, terutama jika permintaan unduhan yang tinggi di waktu yang sama)
 Karena pekerjaan kita berkaitan dengan bidang biologi, maka kita akan menggunakan repositori untuk bidang biologi, yakni `BiocManager`.
 ```
 install.packages("BiocManager")
