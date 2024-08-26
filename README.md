@@ -232,6 +232,32 @@ So that's great, but what does that mean? fnFs and fnRs point to our fastq files
 ![image](https://github.com/user-attachments/assets/1b3e419c-d520-474a-9ac1-f75e9293958e)
 
 
+
+# BONUS: File transfer with FTP solution 
+Setup filezilla
+In this training we will use FileZilla for FTP manager. So, please download the application in this link https://filezilla-project.org/download.php. Go to File > Site Manager and click New Site. Give the name "BRIN HPC".
+ ![image](https://github.com/user-attachments/assets/1fc80f14-6cae-4b98-b569-277bf404481a)
+![image](https://github.com/user-attachments/assets/bebf794a-dbd0-41aa-8526-8309d2f634b3)
+
+ 
+Fill the information as showed:
+Protocol: SFTP – SSH File Transfer Protocol
+Host: login2.hpc.brin.go.id
+Logon Type: Key file
+User: [YOUR ACCOUNT]
+Key file: [CREATE YOUR KEY FILE FIRST, BY FOLLOW STEP BELOW] 
+ 
+Before entry the information you, should create key file by browse your id_rsa key. It should be in “C:\Users\BRIN\.ssh” for windows user (depend on you laptop).  After that, select “All files (*.*)” on the file type. Then, select id_rsa (NOT id_rsa.pub). It will ask you to convert key file, select YES. It will ask to create password for safety. Then, it will ask to save your key file
+![image](https://github.com/user-attachments/assets/d24603c3-24e9-476b-a3c5-77cbf7714984)
+ ![image](https://github.com/user-attachments/assets/a487046e-02db-4bea-8eea-05c360d15afd)
+![image](https://github.com/user-attachments/assets/67ae4200-514e-486e-8465-373f85b9b9c4)
+![image](https://github.com/user-attachments/assets/76bcbc00-d56a-4d7b-a15b-cb5728100106)
+
+Now you can connect to server by clicking drop-down menu on server icon, then select “BRIN HPC”. Entry the password you added previously. So, the transfer files (copy and paste) simply like you do in windows explorer.
+![image](https://github.com/user-attachments/assets/cf945985-4180-428f-ad76-236312ce03fe)
+ ![image](https://github.com/user-attachments/assets/ae39bc8a-73ac-42f9-a116-bc7054184008)
+
+
 # Selamat Anda telah menyelesaikan tahapan persiapan awal untuk workshop eDNA Masterclass
 Selamat mengeksplor dan mencoba
 ## #BingungDahuluPahamKemudian
