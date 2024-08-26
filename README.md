@@ -78,49 +78,50 @@ Jika Conda telah berhasil terpasang, maka akan muncul nomor versi Conda yang ter
 ## 5. Buat dan aktifkan environment aplikasi untuk analisis
 Agar proses pembuatan environment dan instalasi aplikasi berjalan lancar, lakukan proses tersebut di interactive compute node dengan cara menjalankan perintah `srun` seperti pada langkah 2.
 
-Dalam workshop ini, ada 3 aplikasi yang akan digunakan, yaitu `NanoPlot` untuk QC, `flye` untuk melakukan denovo assembly, dan `medaka` untuk polishing hasil assembly. Ketiga aplikasi ini tersedia di Conda channel yang bernama 'bioconda'. 
+Dalam workshop ini, aplikasi yang akan digunakan adalah `R` untuk melakukan QC, filtering, clustering dan taxonomy assigment. Aplikasi `R base` di Conda channel yang bernama 'bioconda'. 
 
 Karena dependencies dari masing-masing aplikasi yang digunakan tidak selalu seragam, terutama versi `python`, maka menggunakan satu environment untuk ketiga aplikasi di atas tidak memungkinkan. Dalam workshop ini, setiap aplikasi akan menggunakan environment sendiri. 
 
 
 
-### 4.1 Install NanoPlot
+## 6 Install R base
 ```
-conda create -n nanoplot -c bioconda NanoPlot
+conda create -n Rbase -c conda-forge r-base=4.4.1
 ```
-Ketik 'Y' untuk melanjutkan instalasi saat proses meinta konfirmasi. Ada banyak paket yang dibutuhkan NanoPlot, sehingga semua paket tersebut akan diunduh dan selanjutnya dipasang. Tunggu hingga proses instalasi selesai.
+Ketik 'Y' untuk melanjutkan instalasi saat proses meminta konfirmasi. Ada banyak paket yang dibutuhkan R, sehingga semua paket tersebut akan diunduh dan selanjutnya dipasang. Tunggu hingga proses instalasi selesai. Perintah tersebut akan membuat environment di 'Conda' dengan nama 'Rbase' untuk aplikasi 'R' 
 
-Jika proses selesai dan berhasil, periksa perintah NanoPlot dengan menjalankan perintah sebagai berikut.
+Jika proses selesai dan berhasil, periksa versi R yang terinstall dengan menjalankan perintah sebagai berikut.
 ```
-conda activate nanoplot
-NanoPlot --version
-
+conda activate Rbase
+R --version
 ```
 Jika berhasil, maka layar akan menampilkan kode versi NanoPlot. 
-### 4.2 Install Flye
-```
-conda create -n flye -c bioconda flye
-```
-Ketik 'Y' untuk melanjutkan instalasi saat proses meinta konfirmasi. Ada banyak paket yang dibutuhkan NanoPlot, sehingga semua paket tersebut akan diunduh dan selanjutnya dipasang. Tunggu hingga proses instalasi selesai.
+![image](https://github.com/user-attachments/assets/64af83ce-c456-46fd-ae26-39f37af6c289)
 
-Jika proses selesai dan berhasil, periksa perintah flye dengan menjalankan perintah sebagai berikut.
-```
-conda activate flye
-flye --version
 
-```
-### 4.3 Install Medaka
-```
-conda create -n medaka -c bioconda medaka
-```
-Ketik 'Y' untuk melanjutkan instalasi saat proses meinta konfirmasi. Ada banyak paket yang dibutuhkan NanoPlot, sehingga semua paket tersebut akan diunduh dan selanjutnya dipasang. Tunggu hingga proses instalasi selesai.
 
-Jika proses selesai dan berhasil, periksa perintah medaka dengan menjalankan perintah sebagai berikut.
-```
-conda activate medaka
-medaka --version
 
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 5. Menyiapkan data sampel
 Sampel berupa berkas dengan format FASTQ telah tersedia di server. Untuk memudahkan, buat symbolic link (symlink) ke direktori kerja Anda. Sebelum melanjutkan, agar memudahkan Anda, aktifkan dahulu environment base dengan perintah berikut.
 ```
