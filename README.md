@@ -220,7 +220,7 @@ Let’s translate that into English.
 Make a variable and assign this variable to sort the files listed in “path”. But only sort the files that contain “_R1_001.fastq”. And use “_R1_001.fastq” to sort them. However, in the output, include the whole name.
 You can view the output of this by typing “fnFs” and running it. It should look like this 
 ```
-> fnRs
+fnRs
 ```
 `[1] “./bioinfomatics_course/MiSeq_SOP/F3D0_S188_L001_R2_001.fastq”`
 `[2] “./bioinfomatics_course/MiSeq_SOP/F3D1_S189_L001_R2_001.fastq”`
@@ -229,7 +229,7 @@ You can view the output of this by typing “fnFs” and running it. It should l
 `[5] “./bioinfomatics_course/MiSeq_SOP/F3D143_S209_L001_R2_001.fastq”`
 
 So that's great, but what does that mean? fnFs and fnRs point to our fastq files on our computer. We can also perform functions on those files by using fnFs to point at them.
-> ![image](https://github.com/user-attachments/assets/1b3e419c-d520-474a-9ac1-f75e9293958e)
+![image](https://github.com/user-attachments/assets/1b3e419c-d520-474a-9ac1-f75e9293958e)
 
 
 # Selamat Anda telah menyelesaikan tahapan persiapan awal untuk workshop eDNA Masterclass nanti
