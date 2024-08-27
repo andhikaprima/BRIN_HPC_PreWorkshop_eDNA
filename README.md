@@ -201,6 +201,8 @@ Kemudian, ekstrak file zip tersebut dengan mengetik perintah:
 ```
 unzip miseqsopdata.zip
 ls
+cd MiSeq_SOP
+ls
 ```
 ![image](https://github.com/user-attachments/assets/cd931726-0f06-42de-9120-5f80c3735016)
 ![image](https://github.com/user-attachments/assets/3a6a2317-6d55-41b2-b6f1-d2f92a653d5d)
