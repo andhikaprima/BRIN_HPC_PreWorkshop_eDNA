@@ -56,7 +56,7 @@ ln -s bin/pyton3 python
 
 Cek kembali versi python Anda 
 ```
-python –version
+python –-version
 ```
 
 
