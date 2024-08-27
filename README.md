@@ -154,7 +154,7 @@ Karena pekerjaan kita berkaitan dengan bidang biologi, maka kita akan menggunaka
 ```
 install.packages("BiocManager")
 ```
-Ketika Anda pertama kali menginstal R, ia akan meminta mirror CRAN Anda (semacam basis data global dari R packages). Untuk kali ini, Anda dapat mengetikkan 44 untuk "44: Indonesia (Banda Aceh) [https]". 
+Ketika Anda pertama kali menginstal R, ia akan meminta mirror CRAN Anda (semacam basis data global dari R packages). Untuk kali ini, Anda dapat mengetikkan 44 untuk "44: Indonesia (Banda Aceh) [https]". Kode mirror CRAN bisa berbeda-beda untuk masing-masing pengguna.
 ![image](https://github.com/user-attachments/assets/158e7bf9-fd94-4963-b7f3-5f685b732c85)
 
 Install.Packages hanya untuk mengunduh dan menginstal package. Untuk menggunakan package tersebut (load), kita perlu menjalankan perintah berikut ini:
