@@ -37,7 +37,7 @@ Jika berhasil, maka Anda akan mendapatkan compute node bermana `trembesi91` atau
 
 
 ## 3. Check versi python dan update versi python
-Untuk mengetahui versi 'Python' Anda, ketikan perintah `python –version` atau `python -V`
+Untuk mengetahui versi 'Python' Anda, ketikan perintah `python –-version` atau `python -V`
 Pastikan versi yang Anda gunakan adalah Python 3.10.14
 Jika bukan versi tersebut, lakukan langkah berikut:
 ```
