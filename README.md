@@ -119,6 +119,10 @@ Jika berhasil, maka layar akan menampilkan kode versi R.
 ![image](https://github.com/user-attachments/assets/64af83ce-c456-46fd-ae26-39f37af6c289)
 
 Pastikan bahwa `R base` yang terinstall adalah version 4.4.1.<br /> <br />
+Untuk Pengguna MacOC perlu step tambahan, ketikan perintah berikut:
+```
+export LC_ALL=en_US.UTF-8
+```
 
 ### Info tambahan: Perintah umum di Conda
 ![image](https://github.com/user-attachments/assets/2f485796-3770-4089-953a-f3abf35842c1)
