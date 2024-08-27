@@ -264,7 +264,7 @@ Terlihat bagus, tapi apa artinya? fnFs dan fnRs menunjuk ke file fastq di komput
 
 # BONUS: File transfer with FTP solution 
 ## Setup filezilla
-Pada pelatihan ini kita akan menggunakan FileZilla untuk pengelola FTP, serupa dengan Window Explore. Jadi, silakan unduh aplikasinya di tautan ini https://filezilla-project.org/download.php. Pergi ke File > Site Manager dan klik New Site. Beri nama "BRIN HPC".
+Pada pelatihan ini kita akan menggunakan FileZilla untuk pengelola FTP, serupa dengan Window Explore. Jadi, silakan unduh dan install aplikasinya di tautan ini https://filezilla-project.org/download.php. Pergi ke File > Site Manager dan klik New Site. Beri nama "BRIN HPC".
  ![image](https://github.com/user-attachments/assets/1fc80f14-6cae-4b98-b569-277bf404481a)
 ![image](https://github.com/user-attachments/assets/bebf794a-dbd0-41aa-8526-8309d2f634b3)
 
