@@ -269,12 +269,12 @@ Pada pelatihan ini kita akan menggunakan FileZilla untuk pengelola FTP, serupa d
 ![image](https://github.com/user-attachments/assets/bebf794a-dbd0-41aa-8526-8309d2f634b3)
 
  
-Isi informasi sebagai berikut:
-Protocol: SFTP – SSH File Transfer Protocol
-Host: login2.hpc.brin.go.id
-Logon Type: Key file
-User: [YOUR ACCOUNT]
-Key file: [CREATE YOUR KEY FILE FIRST, BY FOLLOW STEP BELOW] 
+Isi informasi sebagai berikut: <br />
+Protocol: SFTP – SSH File Transfer Protocol <br />
+Host: login2.hpc.brin.go.id <br />
+Logon Type: Key file <br />
+User: [YOUR ACCOUNT] <br />
+Key file: [CREATE YOUR KEY FILE FIRST, BY FOLLOW STEP BELOW]  <br />
  
 Sebelum memasukkan informasi, Anda harus membuat file kunci dengan mencari kunci id_rsa Anda. Kunci tersebut harus berada di "C:\Users\BRIN\.ssh" untuk pengguna windows (tergantung pada laptop Anda).  Setelah itu, pilih "Semua file (*.*)" pada jenis file. Kemudian, pilih id_rsa (BUKAN id_rsa.pub). Ini akan meminta Anda untuk mengonversi file kunci, pilih YES. Ia akan meminta Anda untuk membuat kata sandi untuk keamanan. Kemudian, ia akan meminta untuk menyimpan file kunci Anda.
 ![image](https://github.com/user-attachments/assets/d24603c3-24e9-476b-a3c5-77cbf7714984)
