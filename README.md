@@ -47,9 +47,9 @@ rm Python-3.10.14.tgz
 find ./Python-3.10.14/Python -type d | xargs chmod 0755
 cd Python-3.10.14
 ./configure --prefix=$PWD/Python-3.10.14/Python
-make
+make -j 4
 make install
-export PATH=$CWD:$PATH  # adds python3.10 to PATH
+export PATH=$PWD:$PATH  # adds python3.10 to PATH
 
 ```
 
