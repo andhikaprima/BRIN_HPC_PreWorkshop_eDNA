@@ -46,10 +46,12 @@ tar zxfv Python-3.10.14.tgz
 rm Python-3.10.14.tgz
 find ./Python-3.10.14/Python -type d | xargs chmod 0755
 cd Python-3.10.14
-./configure --prefix=$PWD/Python-3.10.14/Python
+./configure --prefix=$HOME/Python-3.10.14
 make -j 4
 make install
-export PATH=$PWD:$PATH  # adds python3.10 to PATH
+export PATH=$PWD/bin:$PATH  # adds python3.10 to PATH
+ln -s bin/pyton3 python
+
 ```
 
 Cek kembali versi python Anda 
