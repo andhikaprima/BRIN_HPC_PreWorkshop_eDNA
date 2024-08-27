@@ -50,7 +50,7 @@ cd Python-3.10.14
 make -j 4
 make install
 export PATH=$PWD/bin:$PATH  # adds python3.10 to PATH
-ln -s bin/pyton3 python
+ln -s bin/python3 python
 
 ```
 
