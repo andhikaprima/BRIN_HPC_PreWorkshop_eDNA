@@ -49,8 +49,7 @@ cd Python-3.10.14
 ./configure --prefix=$HOME/Python-3.10.14
 make -j 4
 make install
-export PATH=$PWD/bin:$PATH  # adds python3.10 to PATH
-ln -s bin/python3 python
+export PATH=$PWD:$PATH  # adds python3.10 to PATH
 
 ```
 
