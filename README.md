@@ -50,7 +50,6 @@ cd Python-3.10.14
 make -j 4
 make install
 export PATH=$PWD:$PATH  # adds python3.10 to PATH
-
 ```
 
 Cek kembali versi python Anda 
